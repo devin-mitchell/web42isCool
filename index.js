@@ -17,6 +17,10 @@ server.get('/api', (req, res) => {
     res.json({ message: `${process.env.COHORT} ROCKS!` })
 })
 
+server.use((req, res) => {
+    res.status(404).json({ message: 'oops! couldn\'t find that!'})
+})
+
 server.listen(PORT, () => {
     console.log(`listen on ${PORT}`)
 })
